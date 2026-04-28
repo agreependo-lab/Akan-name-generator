@@ -35,7 +35,7 @@ form.addEventListener("submit", function (e) {
 
   // Display result
   akanNameDisplay.textContent = akanName;
-  resultDiv.classList.add("show");
+  resultDiv.style.display = "block";
 });
 
 // Validate user inputs
