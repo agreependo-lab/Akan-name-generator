@@ -15,6 +15,12 @@ align-items: center;
 .top-section{
     text-align: center;
     margin-bottom: 40px;
+    max-width: 600px;
+    color: #ffd700;
+}
+
+.top-section h2{
+    
 }
 
 .container{
