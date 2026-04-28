@@ -20,7 +20,15 @@ align-items: center;
 }
 
 .top-section h2{
-    
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #ffd700;
+}
+
+.top-section p{
+    font-size: 36px;
+    line-height: 1.6;
+color: #ffa500;
 }
 
 .container{
