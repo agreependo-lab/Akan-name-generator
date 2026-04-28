@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akan Name Generator</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-<div class="top-section">
-    <h2>Akan Name Generator</h2>
-    <p>Discover your African heritage through your Akan Name</p>
-</div>
+    <div class="top-section">
+        <h2>Welcome to the</h2>
+        <p>Discover your African heritage through your Akan name.</p>
+    </div>
 
     <div class="container">
-        <h1> Akan Name Generator</h1>
-        <p class="dsub-title">Fill the form</p>
+        <h1>Akan Name Generator</h1>
 
-        <form id="akanform">
+        <form id="akanForm">
             <div class="form-group">
                 <label for="day">Day Of Birth</label>
                 <input type="number" id="day" min="1" max="31" placeholder="1-31" required>
@@ -40,30 +38,29 @@
                 <label>Gender</label>
                 <div class="gender-group">
                     <div class="radio-option">
-                        <input type="radio" id="name" id="female" name="gender" value="female" required>
-                        <label  for="female">Female</label>
+                        <input type="radio" id="female" name="gender" value="female" required>
+                        <label for="female">Female</label>
                     </div>
-                    <div class="gender-group">
-                        <input type="radio" id="name" id="male" name="gender" value="male" required>
-                        <label  for="male">Male</label>
+                    <div class="radio-option">
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <label for="male">Male</label>
+                    </div>
                 </div>
             </div>
-            <div class="error" id="gender-error"></div>
-            </div>
 
-            <button type="submit">Generate My Akan name </button>
+            <button type="submit">Generate My Akan name</button>
         </form>
 
         <div class="result" id="result">
-            <p class="result-text">Your Akan Name is:</p>
+            <p class="result-text">Your Akan name is:</p>
             <p class="akan-name" id="akanName"></p>
         </div>
-        <footer class="footer">
-        <p>© 2026 Akan Name Generator.All rigths reserved.</p>
-    </footer>
     </div>
-    
-    <script src="script.js"></script>
 
+    <footer class="footer">
+        <p>&copy; 2026 Akan Name Generator. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
