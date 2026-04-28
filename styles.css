@@ -78,7 +78,7 @@ select {
 input[type="number"]:focus,
 select:focus {
     outline: none;
-    border-color: #ffa500;
+    border-color: rgb(234, 199, 2);
 }
 
 .gender-group {
