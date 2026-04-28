@@ -1,4 +1,4 @@
-// Get form elements
+// Get all form elements
 const form = document.getElementById("akanForm");
 const resultDiv = document.getElementById("result");
 const akanNameDisplay = document.getElementById("akanName");
@@ -41,6 +41,7 @@ form.addEventListener("submit", function (e) {
 // Validate user inputs
 function validateInputs(day, month, year) {
   let isValid = true;
+  return isValid;
 
   // Validate day
   if (day < 1 || day > 31) {
