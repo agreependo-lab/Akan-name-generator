@@ -11,31 +11,47 @@ align-items: center;
     padding: 0;
     box-sizing: border-box;
 }
+
+.top-section{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 .container{
     background: black;
     padding: 25px;
-    width: 100%;
+    width: 500px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    max-width: 100%;
+    max-width: 500;
     border-radius: 15px;
+}
+
+.header.section{
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20;
+    flex-wrap: wrap;
 }
 
 h1{
     color: gold;
     text-align: center;
-    margin-bottom: 12px;
-    font-size: 20px;
+    margin: 0;
+    white-space: nowrap;
 }
-.description{
-    text-align: center;
-    color: goldenrod;
-    margin-bottom: 33px;
-    font-size: 15px;
-    line-height: 1.5;
+
+.sub-title{
+    color: rgb(207, 177, 10);
+    font-size: 18px;
+    margin: 0;
+    white-space: nowrap;
 }
 
 .form-group{
-margin-bottom: 30px;
+margin-bottom: 20px;
 color: gold;
 }
 
@@ -43,15 +59,15 @@ label{
   display: block;
   color: goldenrod;
   font-weight: 500;
-  margin-bottom: 10px;
-  font-size: 15px;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
 input[type="number"],select{
 width: 100%;
-padding: 15px;
-border-radius: 5px;
-font-size: 15px;
+padding: 12px;
+border-radius: 2px;
+font-size: 14px;
 transition: border-color 0.3s;
 }
 
@@ -138,3 +154,16 @@ display: none;
 .error.show{
     display: block;
 }
+
+.footer{
+    color: goldenrod;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 13px;
+}
+
+.footer p{
+    margin: 0;
+}
+
