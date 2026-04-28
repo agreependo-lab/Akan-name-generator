@@ -12,10 +12,24 @@ align-items: center;
     box-sizing: border-box;
 }
 .container{
-    background: black;
+    background:white;
     padding: 20px;
     width: 300px;
     text-align: center;
     text-align: center;
 }
-input,
+
+button{
+    width: 100px;
+    padding: 10px;
+    background: gold;
+    color: gold;
+    border: none;
+    cursor: progress;
+    transition: 0.3ms;
+}
+
+button.hover{
+    background:5a3780 ;
+    transform: scale(1.05);
+}
