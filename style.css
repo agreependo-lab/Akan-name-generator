@@ -41,20 +41,100 @@ color: gold;
 
 label{
   display: block;
-  color: goldenrod;  
+  color: goldenrod;
+  font-weight: 500;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+input[type="number"],select{
+width: 100%;
+padding: 15px;
+border-radius: 5px;
+font-size: 15px;
+transition: border-color 0.3s;
+}
+
+input[type="number"],select:focus{
+outline: none;
+border-color: rgb(220, 161, 14);
+}
+
+.gender-group{
+    display: flex;
+    gap:30px;
+    margin-top: 10px;
+}
+
+.radio-option{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+input[type="radio"]{
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    accent-color: rgb(220, 161, 14);
+}
+
+.radio-option label{
+    margin-bottom: 0;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 button{
     width: 100px;
     padding: 10px;
-    background: gold;
+    background: goldenrod;
     color: gold;
     border: none;
-    cursor: progress;
-    transition: 0.3ms;
+    cursor: pointer;
+    transition: 0.3ms, box-shadow 0.2s;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 5px;
 }
 
 button.hover{
-    background:5a3780 ;
-    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgb(3, 0, 0);
+    transform: translateY(-2px);
+}
+
+button:active{
+    transform: translateY(0);
+}
+
+.result{
+margin-top: 30px;
+padding: 20px;
+background: rgb(208, 182, 35);
+border-radius: 6px;
+text-align: center;
+display: none;
+}
+
+.result-text{
+    color: black;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.akan-name{
+    font-size: 32px;
+    font-weight: 700;
+    color: rgb(3, 3, 3);
+}
+
+.error{
+    color: rgb(206, 1, 1);
+    font-size: 14px;
+    margin-top: 8px;
+    display: none;
+}
+
+.error.show{
+    display: block;
 }
