@@ -1,7 +1,10 @@
 body{
 font-family: Arial, Helvetica, sans-serif;
+background: #2a2a2a;
 height: 100vh;
 display: flex;
+flex-direction: column;
+justify-content: center;
 padding: 20px;
 align-items: center;
 }
@@ -15,7 +18,8 @@ align-items: center;
 .top-section{
     text-align: center;
     margin-bottom: 40px;
-    max-width: 600px;
+    max-width: 500px;
+    width: 100%;
     color: #ffd700;
 }
 
@@ -28,7 +32,7 @@ align-items: center;
 .top-section p{
     font-size: 36px;
     line-height: 1.6;
-color: #ffa500;
+color: rgb(206, 156, 30);
 }
 
 .container{
