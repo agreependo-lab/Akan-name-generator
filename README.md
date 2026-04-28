@@ -1,98 +1,35 @@
 # Akan Name Generator
 
-A web application that generates traditional Akan names based on your birth date and gender. The Akan people of Ghana have a naming tradition where children are named according to the day of the week they were born.
+This is a simple web application that generates an Akan name based on a user's date of birth and gender. Akan names are traditional Ghanaian names given according to the day of the week a person is born.
 
-## 🌟 Features
+## Features
+- Input fields for **Day**, **Month**, and **Year** of birth
+- Gender selection (Male/Female)
+- Validation for correct date ranges and valid dates
+- Calculates the day of the week using **Zeller’s Congruence**
+- Displays the corresponding Akan name
 
-- **Date-based Name Generation**: Enter your birth date to get your corresponding Akan name
-- **Gender-specific Names**: Different names for males and females
-- **Input Validation**: Ensures valid dates and required fields
-- **Responsive Design**: Works on desktop and mobile devices
-- **Modern UI**: Clean, intuitive interface with a dark theme
+## Project Structure
+- `index.html` — The main webpage with the form and result display
+- `style.css` — Styles for buttons, result box, and error messages
+- `script.js` — JavaScript logic for validation, calculation, and displaying results
 
-## 📋 Akan Naming Tradition
+## How to Run
+1. Clone or download the project files.
+2. Open `index.html` in your browser.
+3. Enter your birth date and select your gender.
+4. Click **Generate** to see your Akan name.
 
-The Akan naming system assigns names based on the day of the week:
+## Example
+- Input: Day = 15, Month = 6, Year = 2000, Gender = Male  
+- Output: **Kwadwo**
 
-### Male Names:
+## Notes
+- The form validates that the day is between 1–31, month between 1–12, and year between 1900–current year.
+- If inputs are invalid, error messages will be shown.
+- The result box is hidden by default and only appears after successful generation.
 
-- **Sunday**: Kwasi
-- **Monday**: Kwadwo
-- **Tuesday**: Kwabena
-- **Wednesday**: Kwaku
-- **Thursday**: Yaw
-- **Friday**: Kofi
-- **Saturday**: Kwame
-
-### Female Names:
-
-- **Sunday**: Akosua
-- **Monday**: Adwoa
-- **Tuesday**: Abenaa
-- **Wednesday**: Akua
-- **Thursday**: Yaa
-- **Friday**: Afua
-- **Saturday**: Ama
-
-## 🚀 How to Use
-
-1. Open `index.html` in your web browser
-2. Enter your birth day (1-31)
-3. Enter your birth month (1-12)
-4. Enter your birth year
-5. Select your gender (Male or Female)
-6. Click "Generate My Akan Name"
-7. View your Akan name and the day of the week you were born
-
-## 🛠️ Technologies Used
-
-- **HTML5**: Structure and content
-- **CSS3**: Styling and responsive design
-- **JavaScript (ES6+)**: Logic and interactivity
-
-## 📁 Project Structure
-
-```
-Akan/
-├── index.html      # Main HTML file
-├── styles.css      # CSS styles
-├── script.js       # JavaScript logic
-└── README.md       # Project documentation
-```
-
-## 🔧 Local Development
-
-No special setup required! Simply open `index.html` in any modern web browser.
-
-For development:
-
-1. Clone or download the project
-2. Open `index.html` in your browser
-3. Make changes to the files as needed
-4. Refresh the browser to see updates
-
-## 📝 Algorithm
-
-The app uses the Akan naming formula to calculate the day of the week:
-
-- Takes birth date components (century, year, month, day)
-- Applies the formula: `d = ((4CC - 2CC - 1) + (45YY) + (1026*(MM + 1)) + DD) % 7`
-- Maps the result (0-6) to days of the week
-- Returns the corresponding Akan name based on gender
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 👥 About
-
-Created as part of a web development project to explore African cultural traditions through technology.
-
----
-
-**Note**: This is a cultural tool for educational purposes. Akan names have deep cultural significance in Ghanaian tradition.</content>
-<parameter name="filePath">/Users/paulineokemba/Group_12/Akan/README.md
+## Future Improvements
+- Add styling for error messages
+- Support for more cultural naming conventions
+- Improve mobile responsiveness
