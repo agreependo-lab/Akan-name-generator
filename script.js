@@ -1,54 +1,79 @@
-const form = document.getElementById("akanForm");
-const resultDiv = document.getElementById("result");
-const akanNameDisplay = document.getElementById("akanName");
+const formElement = document.getElementById("akanForm");
+const resultContainer = document.getElementById("result");
+const akanNameElement = document.getElementById("akanName");
 
-const akanNames = {
+const AKAN_NAMES = {
   male: ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"],
   female: ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"],
 };
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-
+formElement.addEventListener("submit", (event) => {
+  event.preventDefault();
   clearErrors();
 
-  const day = parseInt(document.getElementById("day").value);
-  const month = parseInt(document.getElementById("month").value);
-  const year = parseInt(document.getElementById("year").value);
-  const gender = document.querySelector('input[name="gender"]:checked').value;
-
-  if (!validateInputs(day, month, year)) {
+  const formValues = getFormValues();
+  if (!formValues) {
     return;
   }
 
-  const dayOfWeek = calculateDayOfWeek(day, month, year);
-  const akanName = akanNames[gender][dayOfWeek];
+  const { day, month, year, gender } = formValues;
 
-  akanNameDisplay.textContent = akanName;
-  resultDiv.classList.add("show");
+  if (!validateDateInputs(day, month, year)) {
+    return;
+  }
+
+  const dayIndex = calculateDayIndex(day, month, year);
+  const akanName = AKAN_NAMES[gender][dayIndex];
+
+  showAkanName(akanName);
 });
 
-function validateInputs(day, month, year) {
+function getFormValues() {
+  const day = parseInt(document.getElementById("day").value, 10);
+  const month = parseInt(document.getElementById("month").value, 10);
+  const year = parseInt(document.getElementById("year").value, 10);
+  const selectedGender = document.querySelector('input[name="gender"]:checked');
+
+  if (!selectedGender) {
+    showError(
+      "dayError",
+      "Please choose a gender before generating your Akan name.",
+    );
+    return null;
+  }
+
+  return {
+    day,
+    month,
+    year,
+    gender: selectedGender.value,
+  };
+}
+
+function validateDateInputs(day, month, year) {
   let isValid = true;
-
-  if (day < 1 || day > 31) {
-    showError("dayError", "Day must be between 1 and 31");
-    isValid = false;
-  }
-
-  if (month < 1 || month > 12) {
-    showError("monthError", "Month must be between 1 and 12");
-    isValid = false;
-  }
-
   const currentYear = new Date().getFullYear();
-  if (year < 1900 || year > currentYear) {
-    showError("yearError", `Year must be between 1900 and ${currentYear}`);
+
+  if (Number.isNaN(day) || day < 1 || day > 31) {
+    showError("dayError", "Please enter a day between 1 and 31.");
+    isValid = false;
+  }
+
+  if (Number.isNaN(month) || month < 1 || month > 12) {
+    showError("monthError", "Please enter a month between 1 and 12.");
+    isValid = false;
+  }
+
+  if (Number.isNaN(year) || year < 1900 || year > currentYear) {
+    showError(
+      "yearError",
+      `Please enter a year between 1900 and ${currentYear}.`,
+    );
     isValid = false;
   }
 
   if (isValid && !isValidDate(day, month, year)) {
-    showError("dayError", "Invalid date");
+    showError("dayError", "That date is not valid. Please check your inputs.");
     isValid = false;
   }
 
@@ -66,6 +91,10 @@ function isValidDate(day, month, year) {
 
 function showError(elementId, message) {
   const errorElement = document.getElementById(elementId);
+  if (!errorElement) {
+    return;
+  }
+
   errorElement.textContent = message;
   errorElement.classList.add("show");
 }
@@ -78,29 +107,33 @@ function clearErrors() {
   });
 }
 
-function calculateDayOfWeek(day, month, year) {
-  let m = month;
-  let y = year;
+function showAkanName(name) {
+  akanNameElement.textContent = name;
+  resultContainer.classList.add("show");
+}
 
-  if (m < 3) {
-    m += 12;
-    y -= 1;
+function calculateDayIndex(day, month, year) {
+  let normalizedMonth = month;
+  let normalizedYear = year;
+
+  // For Zeller's Congruence, January and February are counted as months 13 and 14
+  if (normalizedMonth < 3) {
+    normalizedMonth += 12;
+    normalizedYear -= 1;
   }
 
-  const CC = Math.floor(y / 100);
-  const YY = y % 100;
-  const MM = m;
-  const DD = day;
+  const century = Math.floor(normalizedYear / 100);
+  const yearOfCentury = normalizedYear % 100;
 
-  const h =
-    (DD +
-      Math.floor((13 * (MM + 1)) / 5) +
-      YY +
-      Math.floor(YY / 4) +
-      Math.floor(CC / 4) -
-      2 * CC) %
+  const dayNumber =
+    (day +
+      Math.floor((13 * (normalizedMonth + 1)) / 5) +
+      yearOfCentury +
+      Math.floor(yearOfCentury / 4) +
+      Math.floor(century / 4) -
+      2 * century) %
     7;
-  const dayIndex = (h + 6) % 7;
 
-  return dayIndex;
+  // Convert from Zeller's result to 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+  return (dayNumber + 6) % 7;
 }
